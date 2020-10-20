@@ -39,14 +39,14 @@ public class Carro implements Serializable{
     @Column(name = "placa", nullable = false, length = 7)
     private String placa;
        
-    @NotBlank(message = "A renavam deve ser informada")
+    @NotBlank(message = "O renavam deve ser informado")
     @Length(max = 11, message = "A renavam não pode ter mais que {max} caracteres")
     @Column(name = "renavam", nullable = false, length = 11)
     private String renavam;
     
-    @NotBlank(message = "A modelo deve ser informada")
-    @Length(max = 20, message = "A modelo não pode ter mais que {max} caracteres")
-    @Column(name = "modelo", nullable = false, length = 20)
+    @NotBlank(message = "O modelo deve ser informado")
+    @Length(max = 50, message = "O modelo não pode ter mais que {max} caracteres")
+    @Column(name = "modelo", nullable = false, length = 50)
     private String modelo;
     
     @NotBlank(message = "A fabricante deve ser informada")

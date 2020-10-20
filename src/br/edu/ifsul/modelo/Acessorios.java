@@ -30,7 +30,7 @@ public class Acessorios {
     
     @Length(max=50,message="A descrição não pode ter mais que {max} caracteres")
     @NotBlank(message="A descrição não pode ser em branco")
-    @Column(name="descricao", length=100, nullable =false)
+    @Column(name="descricao", length=50, nullable =false)
     private String descricao;
 
     public Integer getId() {
