@@ -57,8 +57,6 @@ public class Pessoa implements Serializable {
     @Column(name = "email", nullable = false, length = 50)
     private String email; 
     
-   
-    
     public Pessoa() {
     }
 

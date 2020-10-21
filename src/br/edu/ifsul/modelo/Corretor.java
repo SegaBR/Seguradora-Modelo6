@@ -1,6 +1,7 @@
 package br.edu.ifsul.modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -29,7 +30,11 @@ public class Corretor extends Pessoa implements Serializable {
     @NotBlank(message="A senha não pode ser em branco")
     @Column(name="senha", length=10,nullable =false)
     private String senha;
-
+    
+    public Corretor(){
+        
+    }
+    
     public double getPercentualComissao() {
         return percentualComissao;
     }
@@ -54,6 +59,29 @@ public class Corretor extends Pessoa implements Serializable {
         this.senha = senha;
     }
     
-    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 17 * hash + Objects.hashCode(super.getId());
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Corretor other = (Corretor) obj;
+        if (!Objects.equals(super.getId(), other.getId())) {
+            return false;
+        }
+        return true;
+    }
     
 }

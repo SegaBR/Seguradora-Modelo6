@@ -6,6 +6,9 @@
     <class>br.edu.ifsul.modelo.Carro</class>
     <class>br.edu.ifsul.modelo.Pessoa</class>
     <class>br.edu.ifsul.modelo.Corretor</class>
+    <class>br.edu.ifsul.modelo.Cobertura</class>
+    <class>br.edu.ifsul.modelo.Seguro</class>
+    <class>br.edu.ifsul.modelo.Sinistro</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Seguradora-Modelo6PU"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

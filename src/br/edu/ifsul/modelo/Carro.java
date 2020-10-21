@@ -6,13 +6,18 @@
 package br.edu.ifsul.modelo;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -66,6 +71,16 @@ public class Carro implements Serializable{
     @ManyToOne
     @JoinColumn(name = "pessoa", referencedColumnName = "id", nullable = false)
     private Pessoa pessoa;  
+    
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="acessorios_carro", 
+           joinColumns =@JoinColumn(name="carro", referencedColumnName="id", nullable=false), 
+         inverseJoinColumns= @JoinColumn(name="acessorios", referencedColumnName="id", nullable=false))
+    private Set<Acessorios> acessoriosCarro = new HashSet<>();
+    
+    public Carro(){
+        
+    }
     
     public Integer getId() {
         return id;
@@ -129,6 +144,14 @@ public class Carro implements Serializable{
 
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
+    }
+
+    public Set<Acessorios> getAcessoriosCarro() {
+        return acessoriosCarro;
+    }
+
+    public void setAcessoriosCarro(Set<Acessorios> acessoriosCarro) {
+        this.acessoriosCarro = acessoriosCarro;
     }
     
     @Override
