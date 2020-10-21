@@ -82,6 +82,7 @@ public class Seguro implements Serializable{
     
     public Seguro() {
         valorTotal=0.0;
+        valorFipe=0.0;
     }
 
     public Integer getId() {

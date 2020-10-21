@@ -48,7 +48,7 @@ public class Cobertura implements Serializable {
     private  Seguro seguro;
     
     public Cobertura(){
-        
+        valor=0.0;
     }
 
     public Integer getId() {
