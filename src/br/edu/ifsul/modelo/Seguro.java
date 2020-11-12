@@ -84,7 +84,29 @@ public class Seguro implements Serializable{
         valorTotal=0.0;
         valorFipe=0.0;
     }
-
+    
+    public void adicionarCobertura(Cobertura obj){
+        valorTotal+=obj.getValor();
+        obj.setSeguro(this);
+        this.cobertura.add(obj);
+    }
+    
+    public void removerCobertura(int index){
+        Cobertura obj = this.cobertura.get(index);
+        valorTotal-=obj.getValor();
+        this.cobertura.remove(index);
+    }
+    
+    public void adicionarSinistro(Sinistro obj){
+        obj.setSeguro(this);
+        this.sinistro.add(obj);
+    }
+    
+    public void removerSinistro(int index){
+        Sinistro obj = this.sinistro.get(index);
+        this.sinistro.remove(index);
+    }
+    
     public Integer getId() {
         return id;
     }

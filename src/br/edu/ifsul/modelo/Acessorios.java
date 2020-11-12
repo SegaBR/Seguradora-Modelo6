@@ -40,11 +40,11 @@ public class Acessorios {
     @Column(name="descricao", length=50, nullable =false)
     private String descricao;
     
-    @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="acessorios_carro", 
-           joinColumns =@JoinColumn(name="acessorios", referencedColumnName="id", nullable=false), 
-         inverseJoinColumns= @JoinColumn(name="carro", referencedColumnName="id", nullable=false))
-    private Set<Carro> Carroacessorios = new HashSet<>();
+    //@ManyToMany(fetch=FetchType.LAZY)
+    //@JoinTable(name="acessorios_carro", 
+    //       joinColumns =@JoinColumn(name="acessorios", referencedColumnName="id", nullable=false), 
+    //    inverseJoinColumns= @JoinColumn(name="carro", referencedColumnName="id", nullable=false))
+    //private Set<Carro> Carroacessorios = new HashSet<>();
     
     public Acessorios(){
         
@@ -73,14 +73,6 @@ public class Acessorios {
         return hash;
     }
 
-    public Set<Carro> getCarroacessorios() {
-        return Carroacessorios;
-    }
-
-    public void setCarroacessorios(Set<Carro> Carroacessorios) {
-        this.Carroacessorios = Carroacessorios;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -98,4 +90,13 @@ public class Acessorios {
         }
         return true;
     }
+
+   // public Set<Carro> getCarroacessorios() {
+    //    return Carroacessorios;
+   // }
+
+   // public void setCarroacessorios(Set<Carro> Carroacessorios) {
+    //    this.Carroacessorios = Carroacessorios;
+   // }
+    
 }
