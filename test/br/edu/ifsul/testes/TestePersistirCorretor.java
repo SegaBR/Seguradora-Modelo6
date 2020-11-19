@@ -6,6 +6,9 @@
 package br.edu.ifsul.testes;
 
 import br.edu.ifsul.modelo.Corretor;
+import br.edu.ifsul.modelo.Permissao;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -49,6 +52,14 @@ public class TestePersistirCorretor {
         cor.setPercentualComissao(2.5);
         cor.setSenha("senha123");
         
+        Set<Permissao> perm = new HashSet<Permissao>();
+        Permissao e= new Permissao();
+        e.setNome("ADMINISTRADOR");
+        e.setDescricao("Controle total sobre a aplicação");
+        em.persist(e);
+        
+        perm.add(e);
+        cor.setPermissoes(perm);
         
         em.getTransaction().begin();
         em.persist(cor);
